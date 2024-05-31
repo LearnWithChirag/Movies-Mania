@@ -339,3 +339,205 @@ body {
   justify-content: center;
 }
 
+/* Login page CSS */
+
+.l-background{ 
+  width: 100%;
+  filter: blur(.2rem);
+  height: 100vh;
+  position: relative;
+  background-image: url('./Images/bg2.jpg');
+  background-repeat: no-repeat;
+  background-size: cover;
+  object-fit: cover;
+}
+
+.loginPage{
+  display: flex;
+  width: 100%;
+  justify-content: space-evenly;
+  /* align-items: center; */
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  /* height: max-content; */
+}
+
+.loginContent{
+  /* padding: 2rem; */
+  width: 35%;
+}
+
+.logTop{
+  font-size: 2rem;
+}
+
+.logTop span{
+  color: red;
+}
+
+.logData{
+  display: flex;
+  flex-direction: column;
+  font-size: 1.5rem;
+  margin-top: 1.5rem;
+  color: white;
+  font-weight: 600;
+  gap: 1rem;
+}
+
+.loginWindow{
+  width: 35%;
+  height: max-content;
+  background-color: rgb(128, 128, 128, .5);
+  padding: 1.5rem;
+  border: .1rem solid black;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 1);
+  border-radius: .5rem;
+  /* opacity: .5; */
+
+}
+
+
+.loginHead{
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  font-size: 2rem;
+}
+.loginHead img{
+  width: 2rem;
+}
+
+.loginDetails form{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  /* gap: .5rem; */
+}
+.loginDetails label, input{
+  padding: .5rem;
+  font-size: 1.5rem;
+}
+.btnLink{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-size: 1.5rem;
+  margin-top: 2rem;
+}
+.btnLink button{
+  padding: .5rem 1rem;
+  /* font-size: 1.5rem; */
+  cursor: pointer;
+}
+.btnLink button:hover{
+  box-shadow: 0 0 .5rem rgba(0, 0, 0, 1);
+}
+
+.btnLink p{
+  /* color: black; */
+  font-weight: 700;
+}
+
+/* Register page */
+
+.r-background{
+  background-image: url('./Images/bg3.jpg');
+  width: 100%;
+  height: 100vh;
+  position: relative;
+  background-size: cover;
+  /* filter: blur(.2rem); */
+}
+
+.registerPage{
+  position: absolute;
+  display: flex;
+  justify-content: space-evenly;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+  width: 100%;
+}
+
+.registerContent{
+  width: 40%;
+  padding: 2rem;
+}
+
+.reg-top{
+  font-size: 2rem;
+}
+
+.reg-top span{
+  color: red;
+}
+
+.reg-data{
+  display: flex;
+  flex-direction: column;
+  font-size: 1.2rem;
+  margin-top: 1.5rem;
+  color: white;
+  font-weight: 600;
+  gap: 1rem;
+}
+
+.registerWindow{
+display: flex;
+flex-direction: column;
+  width: 35%;
+  padding: 1.5rem;
+  /* margin-top: 6rem;
+  margin-left: 25rem;
+  margin-bottom: 5rem; */
+  border: .1rem solid black;
+  box-shadow: 0 0 1rem rgba(0, 0, 0, 1);
+  border-radius: .5rem;
+  /* background-color: white; */
+  background-color: rgb(128, 128, 128, .8);
+
+}
+.registerHead{
+  display: flex;
+  padding: 1rem;
+  align-items: center;
+  font-size: 2rem;
+  justify-content: center;
+  gap: 1rem;
+}
+.registerHead img{
+  width: 2rem;
+}
+
+
+.registerDetails form{
+  display: flex;
+  flex-direction: column;
+  padding: 1rem;
+  
+}
+.registerDetails label, input{
+  padding: .5rem;
+  font-size: 1.5rem;
+}
+.btnLink{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-top: 2rem;
+}
+.btnLink input{
+  padding: .5rem 1rem;
+  font-size: 1rem;
+  cursor: pointer;
+}
+
+.btnLink p{
+  
+  font-weight: 700;
+}

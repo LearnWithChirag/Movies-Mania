@@ -1,15 +1,36 @@
 import { useEffect, useRef, useState } from "react";
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import StarRating from "./StarRating";
 import { useKey } from "./useKey";
 import { useLocalStorageState } from "./useLocalStorageState";
 import { useMovies } from "./useMovies";
+import Login from "./Login";
+import Register from "./Register";
 
 const average = (arr) =>
   arr.reduce((acc, cur, i, arr) => acc + cur / arr.length, 0);
 
-const KEY = "f84fc31d";
+const KEY = "e25c63c0";
+// selected Id = tt3896198
 
 export default function App() {
+  
+  return (
+    <>
+    <BrowserRouter>
+      <Routes>
+        <Route path='/' element={<Login />} />
+        <Route path='/register' element={<Register />} />
+        <Route path='/homepage' element={<HomePage />} />
+      </Routes>
+    </BrowserRouter>
+
+      
+    </>
+  );
+}
+
+function HomePage(){
   const [query, setQuery] = useState("");
   const [selectedId, setSelectedId] = useState(null);
   const { movies, isLoading, error } = useMovies(query);
@@ -31,10 +52,9 @@ export default function App() {
   function handleDeleteWatched(id) {
     setWatched((watched) => watched.filter((movie) => movie.imdbID !== id));
   }
-
-  return (
+  return(
     <>
-      <NavBar>
+    <NavBar>
         <Search query={query} setQuery={setQuery} />
         <NumResults movies={movies} />
       </NavBar>
@@ -68,13 +88,17 @@ export default function App() {
           )}
         </Box>
       </Main>
-    </>
-  );
+      </>
+  )
 }
+
+
 
 function Loader() {
   return <p className="loader">Loading...</p>;
 }
+
+
 
 function ErrorMessage({ message }) {
   return (
@@ -83,6 +107,8 @@ function ErrorMessage({ message }) {
     </p>
   );
 }
+
+
 
 function NavBar({ children }) {
   return (
@@ -93,6 +119,8 @@ function NavBar({ children }) {
   );
 }
 
+
+
 function Logo() {
   return (
     <div className="logo">
@@ -101,6 +129,8 @@ function Logo() {
     </div>
   );
 }
+
+
 
 function Search({ query, setQuery }) {
   const inputEl = useRef(null);
@@ -123,6 +153,8 @@ function Search({ query, setQuery }) {
   );
 }
 
+
+
 function NumResults({ movies }) {
   return (
     <p className="num-results">
@@ -131,9 +163,11 @@ function NumResults({ movies }) {
   );
 }
 
+
 function Main({ children }) {
   return <main className="main">{children}</main>;
 }
+
 
 function Box({ children }) {
   const [isOpen, setIsOpen] = useState(true);
@@ -275,6 +309,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
         setIsLoading(true);
         const res = await fetch(
           `http://www.omdbapi.com/?apikey=${KEY}&i=${selectedId}`
+          // `http://www.omdbapi.com/?i=${selectedId}&apikey=${KEY}` 
         );
         const data = await res.json();
         setMovie(data);
@@ -291,7 +326,7 @@ function MovieDetails({ selectedId, onCloseMovie, onAddWatched, watched }) {
       document.title = `Movie | ${title}`;
 
       return function () {
-        document.title = "usePopcorn";
+        document.title = "Movies Mania";
         // console.log(`Clean up effect for movie ${title}`);
       };
     },
